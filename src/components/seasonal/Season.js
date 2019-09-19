@@ -7,7 +7,11 @@ import AnimeCard from './AnimeCard';
 
 class Season extends React.Component {
     componentDidMount() {
-        this.props.fetchSeason(2018, 'winter');
+        this.props.fetchSeason(this.props.searchYear, this.props.searchSeason);
+    }
+
+    componentDidUpdate() {
+        //this.props.fetchSeason();
     }
 
     renderAnime() {
@@ -44,7 +48,9 @@ const mapStateToProps = state => {
     return {
         anime: state.anime.anime,
         year: state.anime.season_year,
-        season: state.anime.season_name
+        season: state.anime.season_name,
+        searchSeason: state.dropdown.season,
+        searchYear: state.dropdown.year
     };
 };
 export default connect(
