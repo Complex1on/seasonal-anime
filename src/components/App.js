@@ -1,12 +1,13 @@
 import React from 'react';
 
 import Header from './Header';
+import Season from './seasonal/Season';
 
 const App = () => {
     return (
-        <div className="container">
+        <div className="ui container ">
             <Header />
-            <i class="ni ni-html5"></i>
+            <Season />
         </div>
     );
 };
