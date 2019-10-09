@@ -28,6 +28,7 @@ class Season extends React.Component {
                         imgURL={val.image_url}
                         URL={val.url}
                         id={val.mal_id}
+                        key={val.title}
                     />
                 );
             }

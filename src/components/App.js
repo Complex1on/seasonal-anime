@@ -5,9 +5,13 @@ import Season from './seasonal/Season';
 
 const App = () => {
     return (
-        <div className="ui container ">
-            <Header />
-            <Season />
+        <div className="ui grid">
+            <div className="row">
+                <Header />
+            </div>
+            <div className="row">
+                <Season />
+            </div>
         </div>
     );
 };

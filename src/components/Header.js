@@ -4,7 +4,6 @@ import { fetchSeason, changeSeason, changeYear } from '../actions';
 import { Field, reduxForm } from 'redux-form';
 
 class Header extends React.Component {
-    // Figure out logic
     onSubmit = async ({ season, year }) => {
         if (season && !year) {
             this.props.changeSeason(season);
@@ -27,21 +26,35 @@ class Header extends React.Component {
     // MAKE DROPDOWN LOOK PRETTIER
     renderDropdown() {
         return (
-            <div className="ui compact menu">
-                <Field defaultValue="Fall" name="season" component="select">
+            <div className="ui menu">
+                <Field
+                    className="ui field fluid dropdown"
+                    name="season"
+                    component="select"
+                >
                     <option>Fall</option>
                     <option>Winter</option>
                     <option>Spring</option>
                     <option>Summer</option>
                 </Field>
 
-                <Field defaultValue="2019" name="year" component="select">
+                <Field
+                    className="ui field fluid dropdown"
+                    name="year"
+                    component="select"
+                >
                     <option>2019</option>
                     <option>2018</option>
                     <option>2017</option>
                     <option>2016</option>
+                    <option>2015</option>
+                    <option>2014</option>
+                    <option>2013</option>
+                    <option>2012</option>
+                    <option>2011</option>
+                    <option>2010</option>
                 </Field>
-                <button className="ui button">Submit</button>
+                <button className="ui button">Find</button>
             </div>
         );
     }
@@ -51,10 +64,7 @@ class Header extends React.Component {
         return (
             <div className="ui relaxed grid container segment">
                 <h1 className="ui header eight wide column">Seasonal Anime</h1>
-                <form
-                    initialValues={{ name: 'Fall', year: 2019 }}
-                    onSubmit={this.props.handleSubmit(this.onSubmit)}
-                >
+                <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
                     {this.renderDropdown()}
                 </form>
             </div>
@@ -65,13 +75,6 @@ class Header extends React.Component {
 const mapStateToProps = state => {
     return { season: state.dropdown.season, year: state.dropdown.year };
 };
-
-// What do I want to do? Refactor to use redux form
-// 1. select a year and date from the header                     REDUX FORM
-// 2. Store that year and date in redux store                    REDUX FORM
-// 3. Change the options whenever the drop down is changed       REDUX FORM
-// 4. Whenever the year or date is updated                       REDUX FORM
-//    make a new api request to jikan
 
 const form = reduxForm({
     form: 'dropdown'
