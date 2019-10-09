@@ -15,6 +15,7 @@ class Season extends React.Component {
     }
 
     renderAnime() {
+        // IMPLEMENT PAGINATION
         const LIMIT = 12;
         let iterator = 0;
         return _.map(this.props.anime, (val, key) => {
