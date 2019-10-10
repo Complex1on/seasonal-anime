@@ -1,3 +1,6 @@
+## About this Application
+Search for Anime based on season and year
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
